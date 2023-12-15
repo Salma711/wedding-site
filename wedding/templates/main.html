@@ -1,0 +1,562 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Resposive Wedding Planner Website- Fronend</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' %}">
+    <!--boxicons-->
+    <link href="{% static 'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' %}" rel='stylesheet'>
+    <!--unicons-->
+    <link rel="stylesheet" href="{% static 'https://unicons.iconscout.com/release/v4.0.8/css/line.css' %}">
+</head>
+<body>
+    <!--header section starts-->
+    <header>
+        <a href="#" class="logo"><i class="fas fa-user"></i> Be Together </a>
+        <div id="menu-bar" class="fas fa-bars"></div>
+        <nav class="navbar">
+            <a href="#Home">Home</a>
+            <a href="#Vendor">Vendor</a>
+            <a href="#Offers">Offers</a>
+
+            <a href="#Clients">Clients</a>
+            <a href="#Team">Team</a>
+            <a href="#Contact">Contact</a>
+            <button class="button" id="form-open">Login</button>
+
+
+                    
+
+                
+
+            
+        </nav>
+        <!--<div class="icons">
+           <!-<div class="fas fa-moon" id="theme-btn"></div></div>--> 
+        
+    </header>
+
+
+    
+    <!--header section ends  -->
+    <!--Login form-->
+    <section class="hom">
+        <div class="form_container">
+            <i class="uil uil-times form_close"></i>
+            <!--login form-->
+            <div class="form login_form">
+                <form action="#">
+                    <h2>Login</h2>
+                    <div class="input_box">
+                        <input type="email" placeholder="Enter your email" required/>
+                        <i class="uil uil-envelope-alt email"></i>
+                    </div>
+                    <div class="input_box">
+                        <input type="password" placeholder="Enter your password"/>
+                        <i class="uil uil-lock password"></i>
+                        <i class="uil uil-eye-slash pw_hide"></i>
+
+                    </div>
+                    <div class="option-field">
+                        <span class="checkbox">
+                            <input type="checkbox" id="check">
+                            <label for="check">Remember me</label>
+                        </span>
+                        <a href="#" class="forget-pw">Forget password?</a>
+
+                    </div>
+                    <button class="button">Login Now</button>
+
+
+                    <div class="login_signup">Don't have an account? <a href="#" id="signup">Signup</a></div>
+
+                </form>
+        
+            </div>
+            <!--signup form-->
+            <div class="form signup_form">
+                <form action="#">
+                    {% csrf_token %}
+                    <h2>Signup</h2>
+                    <div class="input_box">
+                        <input type="email" placeholder="Enter your email" required/>
+                        <i class="uil uil-envelope-alt email"></i>
+                    </div>
+                    <div class="input_box">
+                        <input type="password" placeholder="Create password"/>
+                        <i class="uil uil-lock password"></i>
+                        <i class="uil uil-eye-slash pw-hide"></i>
+
+                    </div>
+                    <div class="input_box">
+                        <input type="password" placeholder="Confirm password"/>
+                        <i class="uil uil-lock password"></i>
+                        <i class="uil uil-eye-slash pw_hide"></i>
+
+                    </div>
+                    
+                    <button class="button">Signup Now</button>
+
+
+                    <div class="login_signup">Already have an account? <a href="#" id="login">Login</a></div>
+
+                </form>
+        
+            </div>
+
+            
+    
+        </div>
+        
+
+    </section>
+    <script src="./engt.js"></script>
+    
+    
+
+<!--home section start-->
+<section class="Home" id="Home">
+    <div class="content">
+       <!--<h1>Widding Planner Agency</h1>--> 
+        <h3>We Make Every Moment Special</h3>
+       <!--<a href="#" class="btn">Learn More</a>--> 
+
+        
+
+    </div>
+
+
+
+</section>
+<!--home section end-->
+<section class="step_container">
+    
+    <div class="step">
+        <span>01</span>
+        <h3>Engagement</h3>
+        <p>Getting engaged is momentous occasion in person's life : 
+            It's start of new chapter , and we hope to help you to make every 
+            moment special in your Important Event!
+        </p>
+       <!--<a href="#" class="btn">Learn More</a>--> 
+
+    </div>
+    <div class="step">
+        <span>02</span>
+        <h3>Save The Date</h3>
+        <p>There is only one thing bigger than a wedding and that's 
+            inviting people to it, right?! A great tip for creating 
+            a 'save the date'!
+        </p>
+       <!--<a href="#" class="btn">Learn More</a>--> 
+    </div>
+    <div class="step">
+        <span>03</span>
+        <h3>Wedding Ceremony</h3>
+        <p>Your wedding day is dreamed one of the greatest days of your life.
+            The memories created that day are sure to be the best day in your life.
+        </p>
+       <!--<a href="#" class="btn">Learn More</a>--> 
+    </div>
+
+
+
+</section>
+<!--vendor section starts -->
+<section class="vendor" id="vendor">
+    <div class="heading">
+        <h1>Top Wedding Vendors</h1>
+        <div class="container">
+            <div class="lines"></div>
+
+        </div>
+    </div>
+    <div class="box-container">
+        <div class="box">
+            <img src="{% static ./1.jpg}" alt="">
+            <div class="info">
+                <h3>Dreassing</h3>
+                <p>Lorem, ipsum dolor site amet consectetur adipisicing elit. Veniam, dolores.</p>
+                <a href="./dress.html" class="bttn" target="_blank" >Learn More</a>
+            </div>
+
+        </div>
+        <div class="box">
+            <img src="{% static ./2.jpg}" alt="">
+            <div class="info">
+                <h3>Florist</h3>
+                <p>Lorem, ipsum dolor site amet consectetur adipisicing elit. Veniam, dolores.</p>
+
+                <a href="./flower.html" class="bttn" target="_blank">Learn More</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src="{% static ./3.jpg}" alt="">
+            <div class="info">
+                <h3>Wedding Cake</h3>
+                <p>Lorem, ipsum dolor site amet consectetur adipisicing elit. Veniam, dolores.</p>
+
+                <a href="./cake.html" class="bttn" target="_blank">Learn More</a>
+            </div>
+        </div>    
+        <div class="box">
+            <img src="{% static ./4.jpg}" alt="">
+            <div class="info">
+                <h3>Venu And Hall</h3>
+                <p>Lorem, ipsum dolor site amet consectetur adipisicing elit. Veniam, dolores.</p>
+
+
+                <a href="./wall.html" class="bttn" target="_blank">Learn More</a>
+            </div>
+        </div>    
+        <div class="box">
+            <img src="{% static ./5.jpg}" alt="">
+            <div class="info">
+                <h3>Music And Party</h3>
+                <p>Lorem, ipsum dolor site amet consectetur adipisicing elit. Veniam, dolores.</p>
+
+
+                <a href="./music.html" class="bttn" target="_blank">Learn More</a>
+            </div>
+        </div>
+        <div class="box">
+            <img src="./6.jpg" alt="">
+            <div class="info">
+                <h3>Photographer</h3>
+                <p>Lorem, ipsum dolor site amet consectetur adipisicing elit. Veniam, dolores.</p>
+
+                <a href="./photographer.html" class="bttn" target="_blank">Learn More</a>
+            </div>
+        </div>    
+
+    </div>
++
+</section>
+<!--offers section starts -->
+<section class="Offers" id="Offers">
+    <div class="heading">
+        <h1>Our Offers</h1>
+        <div class="container">
+            <div class="lines"></div>
+
+        </div>
+    </div>
+    <div class="box-container">
+        <div class="box">
+            <h3 class="title">Basic</h3>
+            
+            <ul>
+                <li><i class="fas fa-check"></i>Venu And Hall</li>
+                <li><i class="fas fa-check"></i>Music And Party</li>
+                <li><i class="fas fa-check"></i>Wedding Cake</li>
+                <li><i class="fas fa-check"></i>Photographer</li>
+                <li><i class="fas fa-times"></i>Dreassing</li>
+                <li><i class="fas fa-times"></i>Florist</li>
+    
+            </ul>
+            <a href="#" ><button class="bttn">Buy Now</button></a>
+    
+        </div>
+        <div class="box">
+            <h3 class="title">Standard</h3>
+            
+            <ul>
+                <li><i class="fas fa-check"></i>Venu And Hall</li>
+                <li><i class="fas fa-check"></i>Music And Party</li>
+                <li><i class="fas fa-check"></i>Wedding Cake</li>
+                <li><i class="fas fa-check"></i>Photographer</li>
+                <li><i class="fas fa-check"></i>Dreassing</li>
+                <li><i class="fas fa-times"></i>Florist</li>
+    
+            </ul>
+            <a href="#" ><button class="bttn">Buy Now</button></a>
+    
+        </div>
+        <div class="box">
+            <h3 class="title">Premium</h3>
+            
+            <ul>
+                <li><i class="fas fa-check"></i>Venu And Hall</li>
+                <li><i class="fas fa-check"></i>Music And Party</li>
+                <li><i class="fas fa-check"></i>Wedding Cake</li>
+                <li><i class="fas fa-check"></i>Photographer</li>
+                <li><i class="fas fa-check"></i>Dreassing</li>
+                <li><i class="fas fa-check"></i>Florist</li>
+    
+            </ul>
+            <a href="#" ><button class="bttn">Buy Now</button></a>
+    
+        </div>
+    
+    
+
+    </div>
+    
+
+</section>
+<!--offers section ends -->
+
+<!--vendor section starts -->
+<!--cleint section starts -->
+
+    <section class="Clients" id="Clients">
+        <div class="heading">
+            <h1>Our Previous cleints</h1>
+            <div class="container">
+                <div class="lines"></div>
+    
+            </div>
+        </div>
+        <div class="row">
+            <div  class="box-container">
+                <div class="box">
+                    <div class="c1">
+                    <img src="./c1.jpg">
+                    </div>
+                    <div class="info">
+                        <h3>01. Yaman & Feraya</h3>
+                        <p><i class="fas fa-qoute-left"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                             Eligendi nihil tempora necessitatibus, autem cumque alias ad sequi 
+                             laudantium molestias sed nobis id voluptas inventore itaque non, 
+                             mollitia voluptatum error praesentium. <i class="fas fa-qoute-right"></i></p>
+
+                    </div>
+
+                </div>
+                <div class="box">
+                    <div class="c2">
+                    <img src="./c2.jpg">
+                    </div>
+                    <div class="info">
+                        <h3>02. Mert & Hala</h3>
+                        <p><i class="fas fa-qoute-left"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                             Eligendi nihil tempora necessitatibus, autem cumque alias ad sequi 
+                             laudantium molestias sed nobis id voluptas inventore itaque non, 
+                             mollitia voluptatum error praesentium. <i class="fas fa-qoute-right"></i></p>
+
+                    </div>
+                </div>
+            </div>
+            <img src="./div2.JPG">
+            <div  class="box-container">
+                <div class="box">
+                    <div class="info">
+                        <h3>03. Sarb & Elaf </h3>
+                        <p><i class="fas fa-qoute-left"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                             Eligendi nihil tempora necessitatibus, autem cumque alias ad sequi 
+                             laudantium molestias sed nobis id voluptas inventore itaque non, 
+                             mollitia voluptatum error praesentium. <i class="fas fa-qoute-right"></i></p>
+                    </div>
+                    <div class="c3">
+                    <img src="./c3.jpg" >
+                    </div>
+
+                </div>
+                <div class="box">
+                    <div class="info">
+                        <h3>04. Omar & Farah</h3>
+                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                             Eligendi nihil tempora necessitatibus, autem cumque alias ad sequi 
+                             laudantium molestias sed nobis id voluptas inventore itaque non, 
+                             mollitia voluptatum error praesentium. </p>
+                    </div>
+                    <div class="c4">
+                    <img src="./c4.jpg">
+                    </div>
+                                
+                </div>
+            </div>        
+
+
+        </div>
+
+    
++
+
+    </section>
+<!--cleint section ends   -->
+<!--team section starts   -->
+    <section class="team" id="team">
+        <div class="heading">
+            <h1>Our Creative Team</h1>
+            <div class="container">
+                <div class="lines"></div>
+    
+            </div>
+        </div>
+        <div class="box-container">
+            <div class="box">
+                <img src="./t1.jpg">
+                <h3>Olivia Liam</h3>
+                <span>Wedding Planner</span>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                    Velit vero numquam consectetur fugit. 
+                    Reiciendis, vero reprehenderit corporis minus doloribus,
+                    officiis pariatur sint voluptatem aliquid dolorem suscipit.
+                </p>
+                <div class="share">
+                    
+                        
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+
+
+                </div>
+
+
+
+            </div>
+            <div class="box">
+                <img src="./t2.jpg">
+                <h3>Emma James</h3>
+                <span>Wedding Planner</span>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                    Velit vero numquam consectetur fugit. 
+                    Reiciendis, vero reprehenderit corporis minus doloribus,
+                    officiis pariatur sint voluptatem aliquid dolorem suscipit.
+                </p>
+                <div class="share">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+
+
+                </div>
+
+
+
+            </div><div class="box">
+                <img src="./t3.jpg">
+                <h3>Ava William</h3>
+                <span>Wedding Planner</span>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                    Velit vero numquam consectetur fugit. 
+                    Reiciendis, vero reprehenderit corporis minus doloribus,
+                    officiis pariatur sint voluptatem aliquid dolorem suscipit.
+                </p>
+                <div class="share">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+    </section>
+<!--team section ends     -->
+<!--contact section starts   -->
+
+     <section class="Contact" id="Contact">
+        <div class="heading">
+            <h1>Contact US</h1>
+            <div class="container">
+                <div class="lines"></div>
+    
+            </div>
+        </div>
+        <form action="">
+            <div class="inputBox">
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Your Email">
+            </div>
+            <div class="inputBox">
+                <input type="number" placeholder="Your Number">
+                <input type="text" placeholder="Your Address">
+            </div>
+            <textarea placeholder="say something" name="" id="" cols="30" rows="10"></textarea>
+            <input type="submit" value="Send Message" class="bttn">
+
+        </form>
+     </section>
+     <!--footer section starts-->
+      <section class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h3><i class="fas fa-user"> Be Together</i></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Alias sunt repudiandae consequatur quasi, molestias,
+                        sapiente eius laborum quidem nemo debitis ullam excepturi 
+                        culpa aliquam earum nam eum. Ea, fugit sint.</p>
+    
+                </div>
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <a href="#" ><i class="fas fa-chevron-right"></i>Engagement</a>
+                    <a href="#" ><i class="fas fa-chevron-right"></i>Save The Date</a>
+                    <a href="#" ><i class="fas fa-chevron-right"></i>Wedding Ceremony</a>
+    
+    
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <a href="#"><i class="fas fa-phone"></i>+123-456-7890</a>
+                    <a href="#"><i class="fas fa-phone"></i>+321-987-6543</a>
+                    <a href="#"><i class="fas fa-envelope"></i>info.com</a>
+                    <a href="#"><i class="fas fa-map"></i>123 kilo-patra st, luxor Egypt</a>
+                </div>
+                <div class="footer-col">
+                    <h3>Follow Us</h3>
+                    <div class="share">
+                        <a href="#" ><i class="fab fa-facebook-f"></i>facebook</a>
+                        <a href="#" ><i class="fab fa-twitter"></i>twitter</a>
+                        <a href="#"><i  class="fab fa-instagram"></i>instagram</a>
+                        <a href="#" ><i class="fab fa-linkedin"></i>linkedin</a>
+    
+    
+                    </div>
+    
+                    
+                </div>
+
+            </div>
+            
+
+
+        </div>
+        <div class="credit"> &copy; copyriht @ 2023 by <span>ninjashub</span> </div>
+        
+    </section>
+     <!--footer section ends  -->
+<!--contact section ends     -->
+
+    
+
+<!--<script>
+    const header = document.querySelector("header");
+          nav    = document.querySelector("nav");
+          modeToggle = docoment.querySelector(".dark-light");
+          searchToggle = docoment.querySelector(".searchBox");
+
+
+
+          modeToggle.addEventListener("click" , () =>{
+            modeToggle.classList.toggle("active" );
+            header.classList.toggle("dark" );
+            
+
+
+          })
+
+
+
+</script>
+-->
+
+
+
+</body>-</html>

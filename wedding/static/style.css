@@ -1,0 +1,983 @@
+*{
+    font-family: sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    transition: .2s linear;
+    text-transform: capitalize;
+
+}
+*::selection{
+    background-color:#fff;
+    color: #fff;
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 6.5rem;
+    scroll-behavior: smooth;
+}
+body{
+    background:burlywood;
+}
+
+section{
+    padding: 3rem 9%;
+
+}
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    border: .2rem solid ;
+    color:#fff;
+    font-size: 1.7rem;
+    padding: .8rem 3rem;
+    cursor: pointer;
+    background: none;
+    margin-left: 50rem;
+
+}
+.btn:hover{
+    background:burlywood;
+    border-color:burlywood;
+    color:#fff;
+}
+.heading{
+    padding-bottom: 2rem ;
+    text-align: center;
+
+}
+.heading h1{
+    font-size: 4rem;
+    color: #fff;
+    padding-bottom: 1rem;
+    text-transform: uppercase;
+}
+header{
+    position: fixed;
+    top: 0;left: 0; right: 0;
+    z-index: 10000;
+    background :darkolivegreen;
+    padding: 2rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: burlywood;
+    
+
+}
+header .logo{
+    font-size: 2.5rem;
+    color:#fff;
+    font-weight: bolder;
+ }
+ header .logo i{
+    color: #fff;
+    padding-right: .5rem;
+
+ }
+header .navbar a{
+    color: #fff;
+    font-size: 2rem;
+    margin-left: 3rem;
+}
+header .navbar a:hover{
+    color:burlywood;
+}
+.button{
+    color: #fff;
+    padding: .6rem 2.4rem;
+    border: .2rem solid #fff;
+    background: transparent;
+    font-size: 2rem;
+    margin-left: 6rem;
+    border-radius: .6rem;
+    cursor: pointer;
+}
+.button:active{
+    transform: scale(0.98);
+}
+.button:hover{
+   
+    color: burlywood;
+}
+/*login form*/
+
+.form_container{
+    position: absolute;
+    max-width: 400px;
+    width: 100%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(1.2);
+    z-index: 101;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, .1);
+    opacity: 0;
+    pointer-events: none;
+    transition:all 0.4s ease-in-out;
+}
+.hom::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease-out;
+}
+.hom.show::before{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.hom.show .form_container {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+
+
+}
+
+.signup_form{
+    display: none;
+    
+}
+.form_container.active .signup_form{
+    display: block;
+}
+.form_container.active .login_form{
+    display: none;
+}
+
+.form_close{
+    position: absolute;
+    top: 10px; right: 20px;
+    font-size: 22px;
+    opacity: 0.7;
+    cursor: pointer;
+}
+.form_container h2{
+    font-size: 22px;
+    color: darkolivegreen;
+    text-align: center;
+
+}
+.input_box{
+    position: relative;
+    margin-top: 30px;
+    width: 100%;
+    height: 50px;
+
+}
+.input_box input{
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 0 30px;
+    color: #333;
+    transition: all 0.2s ease;
+    border-bottom: 1.5px solid darkolivegreen;
+}
+.input_box input:focus{
+    border-color: darkolivegreen;
+}
+.input_box i{
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%);
+    font-size: 20px;
+    
+}
+.input_box i.email,
+.input_box i.password
+{
+    left: 0;
+    color: darkolivegreen;
+
+}
+.input_box input:focus ~ i.email,
+.input_box input:focus ~ i.password
+{
+    color: darkolivegreen;
+}
+.input_box i.pw-hide{
+    right: 0;
+    font-size: 18px;
+    cursor: pointer;
+}
+.option-field{
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+.form_container a{
+    color: darkolivegreen;
+    font-size: 12px;
+}
+.form_container a:hover{
+    text-decoration: underline;
+}
+.checkbox{
+    display: flex;
+    column-gap: 8px;
+    white-space: nowrap;
+    font-size: 12px;
+    
+}
+.checkbox input{
+    accent-color:darkolivegreen;
+}
+.checkbox label{
+    font-size: 15px;
+    cursor: pointer;
+    user-select: none;
+    color: black;
+    margin: 5px;
+}
+.form_container .button{
+    background: darkolivegreen;
+    margin-top: 30px;
+    margin-left: 3.5px;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 10px;
+
+}
+.login_signup{
+    font-size: 15px;
+    text-align: center;
+    margin-top: 15px;
+
+}
+
+
+#menu-bar{
+    font-size: 3rem;
+    color: #fff;
+    border-radius: .5rem;
+    border: .1rem solid #fff;
+    padding: .5rem 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.Home{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-image: url('ABD07298.jpg') ;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+}
+.Home .content h1{
+    font-size: 1.5rem;
+    color:darkolivegreen;
+}
+.Home .content h3{
+    font-size: 3rem;
+    color:#fff;
+    width: 60rem;
+    margin-top: 50rem;
+    margin-left: 35rem;
+}
+
+
+
+
+
+
+
+/*/* media queries*/
+
+@media (max-width:1200px)
+{
+    html{
+        font-size: 55%;
+
+    }
+}
+@media (max-width:991px)
+{
+    header{
+        padding: 2rem 4%;
+
+    }
+    section{
+        padding: 3rem 4%;
+    }
+}
+@media (max-width:768px)
+{
+#menu-bar{
+    display: block;
+}
+   
+header .navbar{
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: burlywood;
+    padding: 1rem 0;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+header .navbar a{
+    display: block;
+    background: #fff;
+    border-radius: .5rem;
+    color: burlywood;
+    margin: 1.5rem;
+    padding: 1rem 2rem;
+    font-size: 2.5rem;
+}
+
+    header .navbar .nav-toggle{
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0% 100%);
+    }
+
+    
+    .Home{
+        justify-content: center;
+        background-position: left;
+    }
+    .Home .content{
+        text-align: center;
+
+    }
+    .Home .content span{
+        font-size: 2rem;
+    }
+    .Home .content h3{
+        font-size: 4rem;
+        width: auto;
+    }
+    .cleints .row{
+        flex-flow: column;
+    }
+    .cleints .row .box-container:last-child .box{
+        display: flex;
+        flex-flow: column-reverse;
+
+    }
+    .Contact form .inputBox input{
+        width: 100%;
+
+    }
+    .footer-col{
+        width: 50%;
+        padding: 0 15px;
+        margin-bottom: 30px;
+
+
+    }
+
+}
+@media(max-width:574)
+{
+    .footer-col{
+        width: 100%;
+    }
+
+
+}
+@media(max-width:450px)
+{
+    html{
+        font-size: 50%;
+    }
+}
+
+.step_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.step_container .step{
+    background:#fff;
+    margin: 1rem;
+    padding: 2rem;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem rgb(0, 0, 0,.9);
+    text-align: center;
+    flex: 1 1 30rem;
+
+}
+.step_container .step span{
+    font-size: 7rem;
+    color: darkolivegreen;
+    font-weight:bolder;
+
+}
+.step_container .step h3{
+    font-size: 3rem;
+    color: burlywood;
+}
+.step_container .step p{
+    font-size: 1.5rem;
+    color: #666;
+    padding: 1rem 0;  
+}
+.vendor .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+.vendor .box-container .box{
+    flex: 1 1 30rem ;
+    margin: 1rem;
+    overflow: hidden;
+    position: relative;
+    border-radius: .5rem;
+    box-shadow:0 .5rem 1rem rgba(0,0,0,.9);
+    height: 25rem;
+    cursor: pointer;
+}
+.vendor .box-container .box img{
+ height: 100%;
+ width: 100%;
+ object-fit: cover;
+
+}
+.vendor .box-container .box .info{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    position:absolute;
+    top: 0; left: 0;
+    height: 100%; width: 100%;
+    background:rgba(255, 255, 255,.8);
+    text-align: center;
+    transform: scale(1.3);
+    opacity: 0;
+}
+.vendor .box-container .box:hover .info{
+
+    transform: scale(1);
+    opacity: 1;
+}
+.vendor .box-container .box:hover img{
+    transform: scale(1.3);
+
+}
+.vendor .box-container .box .info h3{
+font-size: 3rem;
+color: burlywood;
+
+}
+.vendor .box-container .box .info p{
+    font-size: 1.5rem;
+    color: #666;
+    padding: 1rem 0; 
+}
+.vendor .box-container .box .info ul{
+    font-size: 1.7rem;
+    font-weight: bolder;
+    color: burlywood;
+    padding: 1rem 0; 
+}
+.vendor .box-container .box .info h4{
+    font-size: 3rem;
+    color: burlywood;
+    
+    }
+    
+
+
+.vendor .container{
+    padding: 5px;
+}
+.vendor .container .lines{
+    width: 100%;
+    
+    position: relative;
+}
+.vendor .container .lines::after,.vendor .container .lines::before{
+    content: '';
+    position: absolute;
+    margin: auto;
+    height: 1px;
+    background: #fff;
+    width: 45%;
+    
+}
+.vendor .container .lines::after{
+    left: 0;
+
+}
+.vendor .container .lines::before{
+    right: 0;
+}
+
+.vendor .box-container .box .info p{
+    font-size: 1.7rem;
+    color:black;
+    padding: 1rem 0;
+}
+.vendor .box-container .box .info .share{
+    padding: 1rem 0;
+
+}
+.vendor .box-container .box .info .share a{
+    height: 4rem;
+    width: 4rem;
+    line-height: 4rem;
+    font-size: 2.5rem;
+    border-radius: .3rem;
+    color:burlywood;
+    background: #eee;
+    margin: .5rem;
+}
+.vendor .box-container .box .info .share a:hover{
+    background: darkolivegreen;
+}
+
+.bttn{
+    display: inline-block;
+    color: hsl(34, 57%, 70%);
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: .2rem solid;
+    padding: .3rem 1rem;
+}
+.bttn:hover{
+    background-color: darkolivegreen;
+    border-color: darkolivegreen;
+    color: #fff;
+}
+.Offers .container{
+    padding: 5px;
+}
+.Offers .container .lines{
+    width: 100%;
+    
+    position: relative;
+}
+.Offers .container .lines::after,.Offers .container .lines::before{
+    content: '';
+    position: absolute;
+    margin: auto;
+    height: 1px;
+    background: #fff;
+    width: 45%;
+    
+}
+.Offers .container .lines::after{
+    left: 0;
+
+}
+.Offers .container .lines::before{
+    right: 0;
+}
+.Offers .box-container{
+   display: flex;
+   align-items: center;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 6rem;
+}
+.Offers .box-container .box{
+    flex: 1 1 20rem ;
+    margin: 1rem;
+    text-align: center;
+    box-shadow:0 .5rem 1rem rgba(0,0,0,.9);
+   width: 30rem;
+   height: 30rem;
+    position: relative;
+    background: #fff;
+}
+.Offers .box-container .box .title{
+font-size: 2.5rem;
+background: darkolivegreen;
+color: #fff;
+padding: 1rem 0;
+
+}
+.Offers .box-container .box .price{
+font-size: 4rem;
+color: #333;
+padding-top: 1rem;
+}
+.Offers .box-container .box .price span{
+font-size: 2.5rem;
+
+}
+.Offers .box-container .box ul{
+margin: 2rem 6rem;
+list-style: none;
+
+
+}
+.Offers .box-container .box ul li{
+text-align: left;
+padding: .5rem ;
+font-size: 1.5rem;
+color: #333;
+}
+.Offers .box-container .box ul li i{
+color: #fff;
+padding: .5rem;
+margin-right: 1rem;
+background: burlywood;
+border-radius: 50%;
+
+}
+.Offers .box-container .box ul li i .fa-times{
+    padding: .5rem .7rem;
+
+
+}
+
+.Clients .row{
+    display: flex;
+    
+}
+.Clients .row .box-container .box{
+    padding: 1rem 0;
+}
+.Clients .row .box-container .box img{
+    height: 40rem;
+    width: 100%;
+    object-fit:cover;
+    border-radius: .5rem;
+    border: 1rem solid #fff;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .9);
+    
+}
+
+
+
+.Clients .row .box-container .box .info{
+    padding: 2rem 0;
+}
+.Clients .container{
+    padding: 5px;
+}
+.Clients .container .lines{
+    width: 100%;
+    
+    position: relative;
+}
+.Clients .container .lines::after,.cleints .container .lines::before{
+    content: '';
+    position: absolute;
+    margin: auto;
+    height: 2px;
+    background:#fff;
+    width: 45%;
+    
+}
+.Clients .container .lines::after{
+    left: 0;
+
+}
+.Clients .container .lines::before{
+    right: 0;
+}
+.Clients .row .box-container .box .info h3{
+    font-size: 2.5rem;
+    color:darkolivegreen;
+}
+.Clients .row .box-container .box .info p{
+    font-size: 1.8rem;
+    color:aliceblue;
+    padding:1rem 0;
+    font-style: italic;
+}
+.Clients .row .box-container .box .info p i{
+    color: darkolivegreen;
+    padding: 0 .5rem;
+}
+/*team */
+.team .container{
+    padding: 5px;
+}
+.team .container .lines{
+    width: 100%;
+    
+    position: relative;
+}
+.team .container .lines::after,.team .container .lines::before{
+    content: '';
+    position: absolute;
+    margin: auto;
+    height: 2px;
+    background: #fff;
+    width: 45%;
+    
+}
+.team .container .lines::after{
+    left: 0;
+
+}
+.team .container .lines::before{
+    right: 0;
+}
+.team .box-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+.team .box-container .box{
+    
+    margin: 1rem;
+    border-radius: .5rem;
+    box-shadow:0 .5rem 1rem rgba(0,0,0,.9);
+    background: #fff url(./tb.jpg) no-repeat;
+    text-align: center;
+    background-size: cover;
+    flex: 1 33rem;
+}
+.team .box-container .box img{
+    border-radius: 50%;
+    object-fit: cover;
+    height: 15rem;
+    width: 15rem;
+    padding: 1rem;
+
+}
+.team .box-container .box h3{
+    font-size: 2.5rem;
+    color: darkolivegreen;
+    
+}
+.team .box-container .box span{
+    font-size: 2.5rem;
+    color: burlywood;
+}
+.team .box-container .box p{
+    font-size: 1.7rem;
+    color: #333;
+    padding: 1rem 0;
+}
+.team .box-container .box .share{
+    padding: 1rem 0;
+}
+.team .box-container .box .share a{
+    height: 4rem;
+    width: 4rem;
+    line-height: 4rem;
+    font-size: 2.5rem;
+    border-radius: .3rem;
+    color:burlywood;
+    background: #eee;
+    margin: .5rem;
+}
+.team .box-container .box .share a:hover{
+    
+    background: darkolivegreen;
+}
+.Contact .container{
+    padding: 5px;
+}
+.Contact .container .lines{
+    width: 100%;
+    
+    position: relative;
+}
+.Contact .container .lines::after,.Contact .container .lines::before{
+    content: '';
+    position: absolute;
+    margin: auto;
+    height: 2px;
+    background: #fff;
+    width: 45%;
+    
+}
+.Contact .container .lines::after{
+    left: 0;
+
+}
+.Contact .container .lines::before{
+    right: 0;
+}
+.Contact form{
+    padding: 2rem;
+    background: #fff;
+    border-radius: .5rem ;
+    box-shadow: 0 .5rem 1rem rgb(0, 0, 0,.9);
+    text-align: center;
+}
+.Contact form .inputBox{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;  
+}
+.Contact form .inputBox input , .Contact form textarea{
+    border: .2rem solid rgba(0, 0, 0, .1);
+    font-size: 1.7rem;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    text-transform: none;
+    color: burlywood;
+}
+.Contact form .inputBox input{
+    width: 49%;
+
+}
+.Contact form textarea{
+    height: 15rem;
+    width: 100%;
+    resize: none;
+}
+.Contact form .inputBox input::placeholder, .Contact form textarea::placeholder{
+    text-transform: none;
+}
+.Contact form .inputBox input:focus, .Contact form textarea:focus{
+    border-color: darkolivegreen;
+}
+
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    max-width: 1170px;
+    background-color: #fff;
+    margin: auto;
+
+}
+.row{
+    display: flex;
+    flex-wrap: nowrap;
+}
+.footer{
+    background-color: #fff;
+    padding: 70px 0;
+}
+.footer-col{
+    width: 25%;
+    padding: 0 35px;
+}
+.footer-col h3{
+    font-size:20px;
+    color: darkolivegreen;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+    font-weight: bolder;
+    position: relative;
+ 
+}
+.footer-col h3::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: darkolivegreen;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+
+}
+.footer-col p{
+    font-size: 1.3rem;
+    color: burlywood;
+    padding: 1rem 0;
+    line-height: 2;
+    
+}
+.footer-col a{
+    display: block;
+    font-size:  1.7rem;
+    color: burlywood;
+    padding: 1rem 0;
+
+}
+.footer-col a i{
+    padding-right: .5rem;
+    color: burlywood;
+}
+.footer-col a:hover{
+    color: darkolivegreen;
+}
+.credit{
+
+    margin-top: 2.5rem;
+padding: .5rem;
+padding-top: 2rem;
+border-top: .1rem solid #cecece;
+text-align: center;
+color: burlywood;
+font-size: 2rem;
+}
+
+
+.credit span{
+color: darkolivegreen;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
