@@ -1,56 +1,41 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
+from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from .forms import RegisterForm
+from .forms import RegisterForm, LoginForm
 
-def register(response):
-    if response.method == 'POST':
-        form = RegisterForm(response.POST)
+def register(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
         return redirect("/") 
     else:
         form = RegisterForm()
-    return render(response, "main.html", {"form": form})
+    return render(request, "base.html", {"form": form})
 
-"""
-def register(request):
-   if request.method  == 'POST':
-        username=request.POST['username']
-        email=request.POST['email']
-        password=request.POST['password']
-        password2=request.POST['password2']
-        if password == password2:
-            if User.objects.filter(email=email).exists():
-                messages.info(request,'Email Already Used')
-                return redirect('register')
-            elif User.objects.filter(username=username).exists():
-                messages.info(request,'Username Already Used')
-                return redirect('register')
-            else:
-                user=User.objects.create_user(username=username,email=email,password=password)
-                user.save();
-                return redirect ('login')
-        else:
-            messages.info(request,'Password not the same')
-            return redirect('register')
-   else:
-       return render(request,'register.html')
-       """
 def login(request):
+    user = None
+    remember_me = None
     if request.method == 'POST':
-        username=request.POST['username']
-        password=request.POST['password']
-        user=auth.authenticate(username=username,password=password)
+        form2 = LoginForm(request.POST)
+        if form2.is_valid():
+            email = form2.cleaned_data['email']
+            password = form2.cleaned_data['password']
+            remember_me = form2.cleaned_data.get('remember_me')['']
+            user = authenticate(request, email=email, password=password)
         if user is not None:
-            auth.login(request,user)
+            login(request,user)
             return redirect('/')
+        if not remember_me:
+            request.session.set_expiry(0)
         else:
             messages.info(request,'Credentials Invalid')
-            return redirect('login')
+            return redirect('/')
     else:
-     return render(request,'login.html')
+     form2 = LoginForm()
+    return render(request, 'base.html', {'form2': form2})
 def logout(request):
     auth.logout(request)
     return redirect('/')
