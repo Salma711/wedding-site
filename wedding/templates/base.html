@@ -19,11 +19,15 @@
         <div id="menu-bar" class="fas fa-bars"></div>
         <nav class="navbar">
             <a href="#Home">Home</a>
-            <a href="#Vendor">Services</a>
+            <a href="#vendor">Services</a>
             <a href="#Clients">Clients</a>
-            <a href="#Team">Team</a>
+            <a href="#team">Team</a>
             <a href="#Contact">Contact</a>
-            <a class="button" href='/login'>Login</a>
+            {% if user.is_authenticated %}
+                <a class="button" href='/logout'>Logout</a>
+            {% else %}
+                <a class="button" href='/login'>Login</a>
+            {% endif %}
 
         </nav>
         <!--<div class="icons">

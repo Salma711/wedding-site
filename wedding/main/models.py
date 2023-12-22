@@ -1,14 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class Cake(models.Model):
+
+class Product(models.Model):
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    image = models.ImageField(default= 0, null=False, blank=False, upload_to='images/')
+    class Meta:
+        abstract = True
+
+
+class Cake(Product):
     size = models.IntegerField()
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    image = models.ImageField(default= 0, null=False, blank=False, upload_to='images/')
-class Band(models.Model):
+class Band(Product):
     name = models.CharField(max_length=255)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    image = models.ImageField(default= 0, null=False, blank=False, upload_to='images/')
     def is_available_on_date(self, date):
         return not self.bookings.filter(date=date).exists()
 class Band_Booking(models.Model):
@@ -17,28 +21,22 @@ class Band_Booking(models.Model):
 class Cake_Booking(models.Model):
     Cake = models.ForeignKey(Cake, on_delete=models.CASCADE, related_name='bookings')
     date = models.DateField()
-class Photographer(models.Model):
+class Photographer(Product):
     name = models.CharField(max_length=100)
-    price = models.DecimalField(max_digits=6,decimal_places=2)
-    image = models.ImageField(default= 0, null=False, blank=False, upload_to='images/')
     def is_available_on_date(self, date):
         return not self.bookings.filter(date=date).exists()
 class Photographer_Booking (models.Model):
     Photographer= models.ForeignKey(Photographer, on_delete=models.CASCADE, related_name='bookings')
     date = models.DateField()
-class Dress(models.Model):
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    image = models.ImageField(default= 0, null=False, blank=False, upload_to='images/')
+class Dress(Product):
     def is_available_on_date(self, date):
         return not self.bookings.filter(date=date).exists()
 class Dress_Booking(models.Model):
     dress=models.ForeignKey(Dress,on_delete=models.CASCADE, related_name='bookings')
     date = models.DateField()
-class Venue(models.Model):
+class Venue(Product):
     name = models.CharField(max_length=255)
     capacity = models.IntegerField()
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    image = models.ImageField(default= 0, null=False, blank=False, upload_to='images/')
     options =[
         ('option1', 'Open Venue'),
         ('option2', 'Closed Venue'),
@@ -49,9 +47,7 @@ class Venue(models.Model):
 class Venue_Booking(models.Model):
     venue = models.ForeignKey(Venue, on_delete=models.CASCADE, related_name='bookings')
     date = models.DateField()
-class Flower(models.Model):
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    image = models.ImageField(default= 0, null=False, blank=False, upload_to='images/')
+class Flower(Product):
     name = models.CharField(max_length=255)
 class Flower_Booking(models.Model):
     flower = models.ForeignKey(Flower, on_delete=models.CASCADE, related_name='bookings')
