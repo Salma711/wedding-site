@@ -8,8 +8,8 @@ def check_band_availability(request, band_id, date):
     availability = band.is_available_on_date(date)
     return render(request, 'band.html', {'band': band, 'date': date, 'availability': availability})
 def band(request):
-    images = Band.objects.all()
-    return render(request, 'band.html', {'images': images})
+    bands = Band.objects.all()
+    return render(request, 'band.html', {'bands': bands})
 def cake(request):
     images = Cake.objects.all()
     return render(request, 'cake.html', {'images': images})
@@ -25,4 +25,6 @@ def venue(request):
 def flower(request):
     images = Flower.objects.all()
     return render(request, 'flower.html', {'images': images})
+
+
 

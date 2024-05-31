@@ -16,15 +16,16 @@
             </div>
         </div>
         <div class="box-container">
-            {% for image in images %}
+            {% for band in bands %}
             <div class="box">
-                <img src="{{ image.image.url }}" alt="{{ image.name }}">
+                <img src="{{ band.image.url }}" alt="{{ band.name }}">
                 <div class="info">
-                    <h3>Name: {{ image.name }}</h3>
-                    <ul>Price: {{ image.price }} </ul>
+                    <h3>Name: {{ band.name }}</h3>
+                    <ul>Price: {{ band.price }} </ul>
+                    <ul>Price: {{ band.id }} </ul>
 
-                    
-                    <a href="#" class="bttn" >Book</a>
+                    <button type="button" value="{{band.id}}" class="bttn" id="add-cart">Book</button>
+                      
                     <div class="share">
                         <a href="#" class="fab fa-facebook-f"></a>
                         <a href="#" class="fab fa-twitter"></a>
@@ -38,9 +39,46 @@
     
             </div>
             {% endfor %}
+        </div>
             
     </section>
+    <script>
+        $(document).on('click', '#add-cart', function(e){
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '{% url "cart_add" %}',
+                data: {
+            product_id: $('#add-cart').val(),
+            product_qty: $('#qty-cart option:selected').text(),
+            csrfmiddlewaretoken: '{{ csrf_token }}',
+            action: 'post'
+                },
+        
+                success: function(json){
+                    //console.log(json)
+                    document.getElementById("cart_quantity").textContent = json.qty
+                },
+        
+                error: function(xhr, errmsg, err){
+        
+                }
+        
+        
+            });
+        
+        
+        
+        })
+        
+        
+        
+        
+        </script>
+        
     {% endblock %}
-    
+
 </body>
+
+  
 </html>

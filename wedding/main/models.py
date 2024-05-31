@@ -5,8 +5,6 @@ from django.contrib.auth.models import User
 class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     image = models.ImageField(default= 0, null=False, blank=False, upload_to='images/')
-    class Meta:
-        abstract = True
 
 
 class Cake(Product):
@@ -38,10 +36,10 @@ class Venue(Product):
     name = models.CharField(max_length=255)
     capacity = models.IntegerField()
     options =[
-        ('option1', 'Open Venue'),
-        ('option2', 'Closed Venue'),
+        ('Open Venue', 'Open Venue'),
+        ('Closed Venue', 'Closed Venue'),
     ]
-    type = models.CharField(max_length=10, choices=options, default='option2')
+    type = models.CharField(max_length=50, choices=options, default='option2')
     def is_available_on_date(self, date):
         return not self.bookings.filter(date=date).exists()
 class Venue_Booking(models.Model):

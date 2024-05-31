@@ -11,6 +11,7 @@
     <!--unicons-->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
@@ -28,7 +29,10 @@
             {% else %}
                 <a class="button" href='/login'>Login</a>
             {% endif %}
-
+            <div class="cart-icon">
+                <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
+                <span class="cart-count"></span>      
+            </div>
         </nav>
         <!--<div class="icons">
            <!-<div class="fas fa-moon" id="theme-btn"></div></div>--> 

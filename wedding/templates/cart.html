@@ -1,0 +1,12 @@
+<h1>Your Cart</h1>
+<ul>
+  {% for cart_item in cart_items %}
+    <li>{{ cart_item.product.name }} - Quantity: {{ cart_item.quantity }}</li>
+    <form method="POST" action="{% url 'remove_from_cart' cart_item.id %}">
+      {% csrf_token %}
+      <button type="submit">Remove from Cart</button>
+    </form>
+  {% empty %}
+    <li>Your cart is empty.</li>
+  {% endfor %}
+</ul>
